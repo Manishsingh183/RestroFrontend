@@ -1,0 +1,22 @@
+.adminMenuShowDiv {
+  max-height: "200px";
+  overflow-y: "auto";
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#adminMenuShowH2 {
+  margin-top: 0;
+}
+
+.adminMenuShowTable {
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+
+.adminMenuShowData {
+  border: 2px solid black;
+  padding: 5px;
+  text-align: center;
+}

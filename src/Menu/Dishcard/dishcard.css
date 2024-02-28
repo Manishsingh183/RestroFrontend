@@ -1,0 +1,56 @@
+.dishcard_inner {
+  border: 2px solid #fff;
+  width: fit-content;
+  padding: 5%;
+  background-color: #fcf5ea;
+  border-radius: 25px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dishcardimage {
+  border-radius: 25px;
+  border: 2px solid black;
+  width: 160px;
+}
+.dishnamecard {
+  width: fit-content;
+  font-size: 80%;
+  justify-content: center;
+  font-family: "Josefin Sans", sans-serif;
+}
+.pricebarcard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.imagecard {
+  width: fit-content;
+}
+.pricecard {
+  width: fit-content;
+}
+.menucardquantity {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 40%;
+  /* position: relative;
+  right: 4%; */
+}
+.menucardminus {
+  border: 1px solid black;
+  border-radius: 30%;
+  padding: 0 10%;
+  cursor: pointer;
+}
+.mennucardquantitytext {
+}
+.menucardadd {
+  border: 1px solid black;
+  border-radius: 30%;
+  padding: 0 10%;
+  cursor: pointer;
+}

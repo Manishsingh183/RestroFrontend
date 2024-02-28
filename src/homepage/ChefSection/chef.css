@@ -1,0 +1,8 @@
+.cheflist {
+  display: flex;
+  gap: 1%;
+}
+
+.chef_inner {
+  background-color: #fcf5ea;
+}

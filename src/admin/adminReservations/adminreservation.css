@@ -1,0 +1,54 @@
+#adminRes_outer {
+  display: flex;
+  justify-content: center;
+}
+
+#adminRes_inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid black;
+  width: 100%;
+  background-color: #fcf5ea;
+  padding: 0 2%;
+}
+
+#adminRes_heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1% 0;
+}
+
+#adminRes_heading h2 {
+  margin-bottom: 0;
+}
+
+#adminRes_filter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  margin-right: 5%;
+  margin-bottom: 3%;
+}
+
+#adminValues_align {
+  margin-bottom: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.adminReservationheading {
+  padding: 8px;
+  border: 2px solid black;
+  text-align: center;
+}
+
+.adminReservationTable {
+  padding: 8px;
+  border: 2px solid black;
+  border-collapse: collapse;
+}

@@ -1,0 +1,21 @@
+.deliveryNotAvailable {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  right: 4%;
+  margin: 10% 0;
+}
+
+#notavailable {
+  font-size: 15px;
+  padding: 10% 30%;
+  width: 200%;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+#notavailable:hover {
+  background-color: black;
+  color: #fff;
+}

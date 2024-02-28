@@ -1,0 +1,52 @@
+.resvlocation_outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resvlocation_inner {
+  padding: 3%;
+  width: 80%;
+}
+
+.resvlocation_heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resvlocation_heading h3 {
+  color: #fff;
+  margin-bottom: 0;
+  font-family: "Kalam", cursive;
+  font-style: italic;
+  font-size: 20px;
+}
+
+.resvlocationElementGrid {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  column-gap: 5%;
+  align-items: center;
+  justify-content: center;
+}
+
+.resvlocationElement_outer {
+  display: flex;
+  justify-content: center;
+}
+
+#reslocationText {
+  width: 50%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+#resvlocationele {
+  border: 1px solid black;
+  border-radius: 100%;
+  padding: 5%;
+  background: linear-gradient(to bottom, #b298fa, #9fb296);
+}

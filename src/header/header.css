@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25%;
+  margin-top: 2%;
+}
+
+.header_options {
+  display: flex;
+  justify-content: space-between;
+  width: fit-content;
+  gap: 20px;
+}
+
+.active {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: #fff;
+  font-family: "Inria Serif";
+  font-size: 110%;
+  border-bottom: 2px solid #8cbc80;
+}
+
+.header_button {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: #fff;
+  font-family: "Inria Serif";
+  font-size: 110%;
+}
+
+.header_button:hover {
+  border-bottom: 2px solid #8cbc80;
+}
+
+.restro_name {
+  color: #fff;
+  font-family: "Jacques Francois";
+}

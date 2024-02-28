@@ -1,0 +1,31 @@
+.contactsection1_outer {
+  display: grid;
+  grid-template-columns: 42% 50%;
+  column-gap: 8%;
+  width: 60%;
+  margin-bottom: 3%;
+}
+
+#contactsec1img {
+  width: 100%;
+  border-radius: 8%;
+  border: 2px solid #fff;
+}
+
+.conteactsec1desc {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.conteactsec1desc p {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 0;
+}
+
+.conteactsec1desc h1 {
+  text-align: center;
+  margin-top: 0;
+}

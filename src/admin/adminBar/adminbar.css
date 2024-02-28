@@ -1,0 +1,20 @@
+#adminBar_inner {
+  display: flex;
+  justify-content: center;
+}
+
+#adminBarGrid {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  width: 80%;
+}
+
+.adminBarTabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.adminBarButtons {
+  cursor: pointer;
+}

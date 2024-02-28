@@ -1,0 +1,67 @@
+.Footer_outer {
+}
+
+.Footer_inner {
+  display: flex;
+  flex-direction: row;
+  background-color: #fcf5ea;
+  padding: 1% 4% 1.5% 4%;
+}
+
+.footercompanyLogo {
+  width: 30%;
+  height: 30%;
+}
+
+.footerfirstbox {
+}
+
+.footersecondbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+}
+
+.footerthirdbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+}
+
+.box {
+  flex: 1;
+}
+
+.footerColoredSpan {
+  color: #005f6c;
+}
+
+.p_forFooter {
+  margin-bottom: 2%;
+  margin-top: 0px;
+}
+
+.footerSubmitButton {
+  background-color: #50ac39;
+  padding: 3%;
+  border: none;
+  cursor: pointer;
+}
+
+.footerSubmitButton:hover {
+  color: #fff;
+}
+
+.footerSubmitText {
+  width: 70%;
+  padding: 3%;
+  border: none;
+}
+
+.SubscribeForm {
+  /* display: flex; */
+  flex-direction: row;
+  text-align: left;
+}

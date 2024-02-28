@@ -1,0 +1,57 @@
+.resrvGalgrid {
+  display: grid;
+  grid-template-columns: 23% 23% 23% 23%;
+  column-gap: 2%;
+  width: 80%;
+}
+
+#resrvgalleryheading_outer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resrvGallery_outer {
+  margin-top: 5%;
+}
+
+.resrvGallery_outer hr {
+  width: 80%;
+}
+
+#Resvgalleryheading {
+  color: #fff;
+  font-size: 20px;
+  font-family: "Kalam", cursive;
+  font-style: italic;
+}
+
+#resrvGalgrid_outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2% 0 3% 3%;
+}
+
+#resvGal {
+  width: 82%;
+  border: 2px solid #fff;
+  border-radius: 5%;
+}
+
+#resvGal2 {
+  width: 82%;
+  border: 2px solid #fff;
+  border-radius: 5%;
+}
+
+#resvGal3 {
+  width: 82%;
+  border: 2px solid #fff;
+  border-radius: 5%;
+}
+#resvGal4 {
+  width: 81%;
+  border: 2px solid #fff;
+  border-radius: 5%;
+}

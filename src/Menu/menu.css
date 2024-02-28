@@ -1,0 +1,53 @@
+.menu_inner {
+  display: grid;
+  grid-template-columns: 64% 30%;
+  padding: 5%;
+  column-gap: 6%;
+  margin-top: 5%;
+  margin-bottom: 10%;
+}
+
+.menucategory {
+}
+
+.menuoptions {
+  display: flex;
+  justify-content: center;
+}
+
+.menuOptionsList {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-family: "Inria-Serif";
+  cursor: pointer;
+  margin-right: 3%;
+  font-size: 18px;
+}
+
+.menuOptionhighlight {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #8cbc80;
+  color: #fff;
+  font-family: "Inria-Serif";
+  cursor: pointer;
+  margin-right: 3%;
+  font-size: 18px;
+}
+
+/* #starter {
+  border-bottom: 2px solid #8cbc80;
+}
+
+#drinks {
+  border-bottom: 2px solid #8cbc80;
+}
+
+#maincourse {
+  border-bottom: 2px solid #8cbc80;
+}
+
+#specials {
+  border-bottom: 2px solid #8cbc80;
+} */

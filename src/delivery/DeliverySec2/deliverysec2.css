@@ -1,0 +1,27 @@
+.DeliverySec2_outer {
+  display: flex;
+  justify-content: center;
+  margin: 5% 0;
+}
+
+.DeliverySec2_inner {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  align-items: center;
+  gap: 5%;
+}
+
+.DeliverySec2_inner img {
+  border: 2px solid black;
+}
+
+.DeliverySec2_p {
+  text-align: center;
+  width: 80%;
+  font-size: 13px;
+}
+
+.DeliverySec2_p p {
+  color: #fff;
+}

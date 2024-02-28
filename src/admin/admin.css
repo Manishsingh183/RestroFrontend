@@ -1,0 +1,17 @@
+.admin_outer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 5%;
+}
+
+.admin_inner {
+  display: flex;
+  width: 65%;
+  padding: 5%;
+  flex-direction: column;
+}
+.admin_elements {
+  margin-top: 5%;
+}

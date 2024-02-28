@@ -1,0 +1,49 @@
+.resrvTopimg2 {
+  width: 55%;
+  transform: rotate(-21deg);
+  position: relative;
+  left: 7%;
+  bottom: 8%;
+}
+
+.resTop_imagesGrid {
+  display: grid;
+  grid-template-columns: 40% 40%;
+  column-gap: 5%;
+}
+
+.resrvTopimg1 {
+  position: relative;
+  top: 1.5%;
+}
+
+#resvTop_img2style {
+  display: flex;
+  align-items: flex-end;
+}
+
+#resvTop_outer {
+  display: flex;
+  justify-content: center;
+}
+#resvTop_inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 7% 0 0 2%;
+}
+
+#resTop_heading {
+  display: flex;
+  justify-content: center;
+}
+
+#resTop_heading p {
+  text-align: center;
+  width: 63%;
+  color: #fff;
+  font-family: "Kalam", cursive;
+  font-style: italic;
+  font-size: 30px;
+}

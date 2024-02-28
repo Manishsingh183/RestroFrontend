@@ -1,0 +1,24 @@
+.homehistory {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5%;
+  color: #fff;
+}
+
+.homeImageWhite {
+  width: 110%;
+  height: 90%;
+  border-radius: 15%;
+  border: 2px solid #fff;
+}
+
+.homehistoryleft {
+  display: flex;
+  flex-direction: column;
+  margin-left: 3%;
+  text-align: left;
+}
+
+.historysubleftParagraph {
+  margin-top: 0;
+}

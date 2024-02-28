@@ -1,0 +1,41 @@
+.resrvTest_outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resrvTest_inner {
+  padding: 3%;
+  width: 80%;
+}
+
+.resrvTest_heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resrvTest_heading h3 {
+  margin-bottom: 0;
+  color: #fff;
+  font-size: 20px;
+  font-family: "Kalam", cursive;
+  font-style: italic;
+}
+
+.resrvTestgrid {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  column-gap: 5%;
+  align-items: center;
+  justify-content: center;
+}
+
+.resrvTestGridElement_inner {
+  width: 90%;
+}
+
+.resrvTestGridElement_outer {
+  display: flex;
+  justify-content: center;
+}

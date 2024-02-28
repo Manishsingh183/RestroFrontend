@@ -1,0 +1,14 @@
+.galleryImages {
+  display: flex;
+}
+
+.gallery_inner {
+  color: #fff;
+}
+
+.galleryPhoto {
+  width: 90%;
+  height: 90%;
+  border-radius: 25px;
+  border: 4px solid #fff;
+}

@@ -1,0 +1,27 @@
+.homesection1_outer {
+  color: #fff;
+  margin: 5% 0 7%;
+  width: fit-content;
+}
+
+.homesection1_outer p {
+  font-size: 14px;
+  display: inline-block;
+  width: 70%;
+}
+
+#homeOrderNowbutton {
+  background-color: #ffa775;
+  font-size: medium;
+  padding: 1% 3%;
+  border-radius: 0 25px 0 25px;
+  font-family: "Lobster Two", cursive;
+  border: 0 solid #fff;
+  margin-top: 2%;
+  cursor: pointer;
+}
+
+#homeOrderNowbutton:hover {
+  background-color: #fd7326;
+  color: #fff;
+}

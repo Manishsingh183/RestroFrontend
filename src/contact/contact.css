@@ -1,0 +1,9 @@
+.contact_outer {
+  margin-top: 10%;
+}
+
+.contact_mainPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -1,0 +1,36 @@
+#adminMailing_inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  flex-direction: column;
+  background-color: #fcf5ea;
+}
+
+#adminMailing_inner hr {
+  width: 80%;
+}
+
+#adminMailingbox {
+  /* background-color: antiquewhite; */
+  padding: 2%;
+  width: -webkit-fill-available;
+}
+
+#adminMailing_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.adminMailingTable {
+  border: 2px solid black;
+  border-collapse: collapse;
+  padding: 8px;
+}
+
+.adminMailingData {
+  padding: 5px 50px;
+  border: 2px solid black;
+}

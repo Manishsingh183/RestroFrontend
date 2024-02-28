@@ -1,0 +1,14 @@
+.homeImage {
+  width: 60%;
+  height: 60%;
+  border: 3px solid black;
+  border-radius: 25px;
+}
+
+.homeImagePara {
+  align-content: center;
+}
+
+.homeImagePara p {
+  font-size: 14px;
+}
