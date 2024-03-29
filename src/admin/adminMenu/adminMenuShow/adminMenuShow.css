@@ -20,3 +20,9 @@
   padding: 5px;
   text-align: center;
 }
+
+.adminMenu_icon {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

@@ -1,11 +1,12 @@
 #adminContact_inner {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
 }
 
 #adminContact_inner h2 {
   margin-top: 0;
+  text-align: center;
 }
 
 #adminContact_outer {
@@ -27,4 +28,21 @@
   padding: 8px;
   border: 2px solid black;
   text-align: center;
+}
+
+#adminContactfilter_form {
+  display: flex;
+  margin-bottom: 2%;
+  justify-content: right;
+  flex-direction: row;
+}
+
+.adminContactfilter_input {
+  margin-right: 1%;
+  padding: 0.8%;
+}
+
+#adminContactfilter_submit {
+  padding: 1%;
+  cursor: pointer;
 }

@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import "./adminreservation.css";
 import axios from "axios";
 import baseURL from "../../baseURL";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 function AdminReservation() {
   const [reservationValues, setReservationValues] = useState([]);
@@ -27,7 +29,36 @@ function AdminReservation() {
           <h2>Reservations</h2>
         </div>
         <div id="adminRes_filter">
-          <div>Filter</div>
+          <div>
+            <div>
+              <form id="adminResrv_filterform">
+                <input
+                  type="text"
+                  placeholder="Guest Name"
+                  name="GuestName"
+                  className="adminResrvfilter_inputs"
+                />
+                <input
+                  className="adminResrvfilter_inputs"
+                  type="text"
+                  placeholder="Booking Type"
+                  name="bookingType"
+                />
+                <input
+                  type="date"
+                  placeholder="BookingDate"
+                  name="bookingdate"
+                  className="adminResrvfilter_inputs"
+                />
+                <button type="submit" id="adminResrvfilter_submit">
+                  <FontAwesomeIcon
+                    icon={faMagnifyingGlass}
+                    style={{ fontSize: "1em" }}
+                  />
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
         <div id="adminValues_align">
           <table className="adminReservationTable">

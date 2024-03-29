@@ -6,11 +6,12 @@ import AdminContactUs from "./adminContactUs/admincontactus";
 import AdminMailingList from "./adminMailing List/adminMailinglist";
 import AdminMenu from "./adminMenu/adminMenu";
 import AdminReservation from "./adminReservations/adminreservation";
+import AdminDelivery from "./adminDelivery/admindelivery";
 
 function Admin() {
   const [adminBar, setAdminBar] = useState({
     menu: false,
-    reservations: true,
+    reservations: false,
     contact: false,
     mailing: false,
   });
@@ -30,12 +31,15 @@ function Admin() {
 
   return (
     <div className="admin_outer">
-      <div className="admin_headerName">Admin</div>
+      <div id="admin_headerName">
+        <h3>Admin Section</h3>
+      </div>
       <div className="admin_inner">
         <div>
           <AdminBar state={adminBar} updateState={updateState} />
         </div>
         <div className="admin_elements">
+          <AdminDelivery />
           {adminBar.contact && <AdminContactUs />}
           {adminBar.menu && <AdminMenu />}
           {adminBar.mailing && <AdminMailingList />}

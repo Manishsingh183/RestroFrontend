@@ -1,9 +1,10 @@
 .deliveryNotAvailable {
   display: flex;
-  justify-content: center;
-  position: relative;
-  right: 4%;
-  margin: 10% 0;
+  /* justify-content: center; */
+  /* position: relative; */
+  /* right: 4%; */
+  /* margin: 10% 0; */
+  margin-left: 10%;
 }
 
 #notavailable {

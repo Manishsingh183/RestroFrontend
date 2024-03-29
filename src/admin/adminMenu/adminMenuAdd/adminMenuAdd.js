@@ -47,68 +47,93 @@ function AdminMenuAdd() {
 
   return (
     <div>
-      <div id="adminmenu_outer">
-        <div id="adminmenu_inner">
-          <div>
-            <form onSubmit={handleSubmit}>
-              <div>
-                <input
-                  type="file"
-                  accept="image/*"
-                  // name="image"
-                  onChange={handleImageChange}
-                />
+      <div id="adminmenuAdd_outer">
+        <h3>Add New Menu Items</h3>
+        <div id="adminmenuAdd_inner">
+          <form onSubmit={handleSubmit}>
+            <div id="adminMenugrid">
+              <div id="adminMenuleftsection">
+                <div>
+                  <select
+                    id="adminMenuAdd_category"
+                    type="text"
+                    placeholder="Category"
+                    onChange={handleDishInfo}
+                    name="category"
+                    value={dishInfo.category}
+                  >
+                    <option value="Starter">Starter</option>
+                    <option value="MainCourse">Main Course</option>
+                    <option value="Drinks">Drinks</option>
+                    <option value="Specials">Specials</option>
+                  </select>
+                </div>
+                <div>
+                  <select
+                    id="adminMenuAdd_Subcategory"
+                    type="text"
+                    placeholder="Dish Sub Category"
+                    onChange={handleDishInfo}
+                    name="subCategory"
+                    value={dishInfo.subCategory}
+                  >
+                    <option value="Category1">Category1</option>
+                    <option value="Category2">Category2</option>
+                    <option value="Category3">Category3</option>
+                  </select>
+                </div>
+                <div>
+                  <span id="adminMenuAdd_ImageSpan">Image Upload</span>
+                  <input
+                    id="adminMenuAdd_Image"
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageChange}
+                  />
+                </div>
               </div>
-              <div>
-                <input
-                  type="text"
-                  placeholder="Dish Name"
-                  onChange={handleDishInfo}
-                  name="dishName"
-                  value={dishInfo.dishName}
-                ></input>
-                <input
-                  type="text"
-                  placeholder="Dish Description"
-                  onChange={handleDishInfo}
-                  name="dishDescription"
-                  value={dishInfo.dishDescription}
-                />
-                <input
-                  type="number"
-                  placeholder="Price"
-                  onChange={handleDishInfo}
-                  name="price"
-                  value={dishInfo.price}
-                  min="1"
-                ></input>
-                <select
-                  type="text"
-                  placeholder="Category"
-                  onChange={handleDishInfo}
-                  name="category"
-                  value={dishInfo.category}
-                >
-                  <option value="Starter">Starter</option>
-                  <option value="MainCourse">Main Course</option>
-                  <option value="Drinks">Drinks</option>
-                  <option value="Specials">Specials</option>
-                </select>
-                <select
-                  type="text"
-                  placeholder="Dish Sub Category"
-                  onChange={handleDishInfo}
-                  name="subCategory"
-                  value={dishInfo.subCategory}
-                >
-                  <option value="Category1">Category1</option>
-                  <option value="Category2">Category2</option>
-                  <option value="Category3">Category3</option>
-                </select>
+              <div id="adminMenurightsection">
+                <div id="adminMenuRightfirstsubsection">
+                  <div>
+                    <input
+                      id="adminMenuAdd_ItemName"
+                      type="text"
+                      placeholder="Dish Name"
+                      onChange={handleDishInfo}
+                      name="dishName"
+                      value={dishInfo.dishName}
+                    ></input>
+                  </div>
+                  <div>
+                    <input
+                      id="adminMenuAdd_price"
+                      type="number"
+                      placeholder="Price"
+                      onChange={handleDishInfo}
+                      name="price"
+                      value={dishInfo.price}
+                      min="1"
+                    ></input>
+                  </div>
+                </div>
+                <div>
+                  <textarea
+                    id="adminMenuAdd_description"
+                    type="text"
+                    placeholder="Dish Description"
+                    onChange={handleDishInfo}
+                    name="dishDescription"
+                    value={dishInfo.dishDescription}
+                    rows="6"
+                    cols="40"
+                  />
+                </div>
+                <button id="adminMenuAdd_submit" type="submit">
+                  Submit
+                </button>
               </div>
-              <button type="submit">Submit</button>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>

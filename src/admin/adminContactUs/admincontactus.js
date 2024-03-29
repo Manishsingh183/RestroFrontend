@@ -2,6 +2,8 @@ import axios from "axios";
 import baseURL from "../../baseURL";
 import "./admincontactus.css";
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 function AdminContactUs() {
   const [contactValues, setContactValues] = useState([]);
@@ -26,6 +28,26 @@ function AdminContactUs() {
     <div id="adminContact_outer">
       <div id="adminContact_inner">
         <h2>Contact Us Details</h2>
+        <div>
+          <form id="adminContactfilter_form">
+            <input
+              type="text"
+              placeholder="UserName"
+              className="adminContactfilter_input"
+            />
+            <input
+              type="text"
+              placeholder="Email"
+              className="adminContactfilter_input"
+            />
+            <button type="submit" id="adminContactfilter_submit">
+              <FontAwesomeIcon
+                icon={faMagnifyingGlass}
+                style={{ fontSize: "1em" }}
+              />
+            </button>
+          </form>
+        </div>
         <table className="adminContactTable_outer">
           <thead>
             <tr>

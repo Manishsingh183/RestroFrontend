@@ -15,3 +15,7 @@
 .admin_elements {
   margin-top: 5%;
 }
+
+#admin_headerName {
+  color: #fff;
+}

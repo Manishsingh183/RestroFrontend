@@ -2,6 +2,8 @@ import "./adminMenuShow.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import baseURL from "../../../baseURL";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 function AdminMenuShow() {
   const [menuItems, setMenuItems] = useState([]);
@@ -25,6 +27,20 @@ function AdminMenuShow() {
     <div>
       <div className="adminMenuShowDiv">
         <h2 id="adminMenuShowH2">Menu Items</h2>
+        <div>
+          <form>
+            <input
+              type="text"
+              placeholder="Item Name"
+              className="adminMenuShowFilter_input"
+            />
+            <input
+              type="text"
+              placeholder="Category"
+              className="adminMenuShowFilter_input"
+            />
+          </form>
+        </div>
         <table className="adminMenuShowTable">
           <thead>
             <tr>
@@ -49,8 +65,23 @@ function AdminMenuShow() {
                   <td className="adminMenuShowData">{ele.dishDescription}</td>
                   <td className="adminMenuShowData">{ele.price}</td>
                   <td className="adminMenuShowData">
-                    <button>edit</button>
-                    <button>del</button>
+                    <button className="adminMenu_icon">
+                      <div>
+                        <FontAwesomeIcon
+                          icon={faEdit}
+                          style={{ fontSize: "1.2em" }}
+                        />
+                      </div>
+                    </button>
+                    <span> </span>
+                    <button className="adminMenu_icon">
+                      <div>
+                        <FontAwesomeIcon
+                          icon={faTrash}
+                          style={{ fontSize: "1.2em" }}
+                        />
+                      </div>
+                    </button>
                   </td>
                 </tr>
               );

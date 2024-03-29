@@ -2,6 +2,8 @@ import "./adminMailinglist.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import baseURL from "../../baseURL";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 function AdminMailingList() {
   const [mailingList, setMailingList] = useState([]);
@@ -26,6 +28,22 @@ function AdminMailingList() {
     <div id="adminMailing_inner">
       <div>
         <h2>Mailing List</h2>
+      </div>
+      <div>
+        <form id="adminMailingFilter_form">
+          <input
+            type="text"
+            placeholder="User Email"
+            name="userEmail"
+            className="adminMailingfilter_input"
+          />
+          <button type="submit" id="adminMailingfilter_submit">
+            <FontAwesomeIcon
+              icon={faMagnifyingGlass}
+              style={{ fontSize: "1em" }}
+            />
+          </button>
+        </form>
       </div>
       <div id="adminMailingbox">
         <div id="adminMailing_content">

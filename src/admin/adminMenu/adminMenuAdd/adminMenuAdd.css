@@ -1,0 +1,79 @@
+#adminmenuAdd_outer {
+  border: 2px solid black;
+  border-radius: 2%;
+  padding: 5%;
+  margin-bottom: 10%;
+}
+
+#adminmenuAdd_outer h3 {
+  text-align: center;
+  margin-bottom: 5%;
+  margin-top: 0;
+}
+
+#adminMenugrid {
+  display: grid;
+  grid-template-columns: 40% 50%;
+  padding: 0 5%;
+}
+
+#adminMenuleftsection {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3%;
+  column-gap: 5%;
+}
+
+#adminMenuRightfirstsubsection {
+  display: flex;
+  flex-direction: row;
+  row-gap: 4%;
+}
+
+#adminMenuAdd_category {
+  margin-bottom: 10%;
+  width: 70%;
+  text-align: center;
+  padding: 1.5%;
+}
+
+#adminMenuAdd_Subcategory {
+  margin-bottom: 10%;
+  width: 70%;
+  text-align: center;
+  padding: 1.5%;
+}
+
+#adminMenuAdd_Image {
+  margin-bottom: 10%;
+  text-align: center;
+}
+
+#adminMenuAdd_ImageSpan {
+  font-size: small;
+}
+
+#adminMenuRightfirstsubsection {
+  margin-bottom: 5%;
+}
+
+#adminMenuAdd_ItemName {
+  padding: 2%;
+  width: 100%;
+  justify-content: left;
+}
+
+#adminMenuAdd_price {
+  padding: 2%;
+  width: 100%;
+  justify-content: right;
+  margin-left: 10%;
+}
+
+#adminMenuAdd_submit {
+  background-color: #35bc42;
+  border: none;
+  padding: 2%;
+  color: #fff;
+  margin-top: 3%;
+}

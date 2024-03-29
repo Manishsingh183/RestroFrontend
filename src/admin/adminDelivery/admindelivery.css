@@ -1,0 +1,23 @@
+#adminDelivery_inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  flex-direction: column;
+  background-color: #fcf5ea;
+}
+
+#adminDeliveryBox {
+  margin-bottom: 2%;
+}
+
+.adminServiceValue {
+  border: 2px solid black;
+  padding: 2%;
+}
+
+.adminServiceCustomerInfoUpper {
+  display: flex;
+  /* align-items: stretch; */
+  justify-content: space-between;
+}
