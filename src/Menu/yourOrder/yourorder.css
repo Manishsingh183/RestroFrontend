@@ -9,6 +9,7 @@
 .ordersList {
   background-color: #d9d9d9;
   padding-bottom: 3%;
+  padding-top: 1px;
 }
 
 .orderhrline {
@@ -20,6 +21,32 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+#ordernameStyle {
+  font-size: small;
+}
+
+#OrderdeliverStyle_outer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5%;
+}
+
+.orderdeliveryButtons {
+  width: 45%;
+  padding: 5px;
+  border-radius: 5px;
+  font-style: italic;
+  color: #fff;
+}
+
+#yourOrderNowButton {
+  background-color: red;
+}
+
+#yourOrderDeliverNowButton {
+  background-color: black;
 }
 
 .orderseparationprice {

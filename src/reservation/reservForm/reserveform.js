@@ -2,6 +2,7 @@ import "./reserveform.css";
 import { useState } from "react";
 import axios from "axios";
 import baseURL from "../../baseURL";
+import toast, { Toaster } from "react-hot-toast";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -37,12 +38,14 @@ function ReserveNow() {
         .post(baseURL + "/reservation", formData)
         .then((result) => {
           console.log(result.data.message);
+          toast(result.data.message);
         })
         .catch((error) => {
           console.error("Error: ", error);
         });
     } else {
       alert("Fill all the fields first");
+      toast("Fill all the fields first");
     }
   }
 
@@ -141,6 +144,22 @@ function ReserveNow() {
                     <button id="resrvformButtonStyle" type="submit">
                       <strong>Reserve!</strong>
                     </button>
+                    <Toaster
+                      toastOptions={{
+                        success: {
+                          style: {
+                            background: "green",
+                          },
+                          position: "top-right",
+                        },
+                        error: {
+                          style: {
+                            background: "red",
+                          },
+                          position: "top-right",
+                        },
+                      }}
+                    />
                   </div>
                 </div>
                 <div>

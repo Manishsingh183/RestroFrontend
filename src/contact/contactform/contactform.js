@@ -9,6 +9,8 @@ import {
   faPinterest,
 } from "@fortawesome/free-brands-svg-icons";
 
+import toast, { Toaster } from "react-hot-toast";
+
 import axios from "axios";
 import baseURL from "../../baseURL";
 
@@ -19,16 +21,28 @@ function ContactForm() {
     comment: "",
   });
 
+  const clearForm = () => {
+    setContactData({
+      name: "",
+      email: "",
+      comment: "",
+    });
+  };
+
   function handleSubmit(event) {
-    console.log(contactData);
+    // console.log(contactData);
+    event.preventDefault();
     axios
       .post(baseURL + "/contactUs", contactData)
       .then((result) => {
         console.log(result.data.message);
-        alert("Your details has been sent!");
+        toast("Your details has been sent");
+        clearForm();
+        // alert("Your details has been sent!");
       })
       .catch((error) => {
         console.error("Error:", error);
+        toast("Error encountered");
       });
     // event.preventDefault();
   }
@@ -80,6 +94,22 @@ function ContactForm() {
               <button id="contact_submitButton" type="submit">
                 Submit
               </button>
+              <Toaster
+                toastOptions={{
+                  success: {
+                    style: {
+                      background: "green",
+                    },
+                    position: "top-right",
+                  },
+                  error: {
+                    style: {
+                      background: "red",
+                    },
+                    position: "top-right",
+                  },
+                }}
+              />
             </div>
           </div>
         </form>

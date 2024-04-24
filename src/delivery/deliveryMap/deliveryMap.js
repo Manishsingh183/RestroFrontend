@@ -12,8 +12,8 @@ import baseURL from "../../baseURL";
 import "./deliveryMap.css";
 
 const containerStyle = {
-  width: "500px",
-  height: "500px",
+  width: "400px",
+  height: "400px",
 };
 
 function MyComponent() {
@@ -115,25 +115,25 @@ function MyComponent() {
     destiantionRef.current.value = "";
   }
 
-  async function calculateRoute() {
-    if (originRef.current.value === "" || destiantionRef.current.value === "") {
-      return;
-    }
-    // eslint-disable-next-line no-undef
-    const directionService = new google.maps.DirectionsService();
-    // eslint-disable-next-line no-undef
-    const results = await directionService.route({
-      origin: originRef.current.value,
-      destination: destiantionRef.current.value,
-      // eslint-disable-next-line no-undef
-      travelMode: google.maps.TravelMode.DRIVING,
-    });
-    setDirectionsResponse(results);
-    console.log(results);
-    setDistance(results.routes[0].legs[0].distance.text);
-    setDuration(results.routes[0].legs[0].duration.text);
-    getLocationCoordinate();
-  }
+  // async function calculateRoute() {
+  //   if (originRef.current.value === "" || destiantionRef.current.value === "") {
+  //     return;
+  //   }
+  //   // eslint-disable-next-line no-undef
+  //   const directionService = new google.maps.DirectionsService();
+  //   // eslint-disable-next-line no-undef
+  //   const results = await directionService.route({
+  //     origin: originRef.current.value,
+  //     destination: destiantionRef.current.value,
+  //     // eslint-disable-next-line no-undef
+  //     travelMode: google.maps.TravelMode.DRIVING,
+  //   });
+  //   setDirectionsResponse(results);
+  //   console.log(results);
+  //   setDistance(results.routes[0].legs[0].distance.text);
+  //   setDuration(results.routes[0].legs[0].duration.text);
+  //   getLocationCoordinate();
+  // }
 
   function getGoogleMaps(latitude, longitude, locationName) {
     const currentDateTime = new Date();
@@ -189,11 +189,12 @@ function MyComponent() {
   }
 
   const handleMarkerDrag = (e) => {
-    setCurrLocation({
+    const newLocation = {
       lat: e.latLng.lat(),
       lng: e.latLng.lng(),
-    });
-    getCurrLocationName(currlocation);
+    };
+    setCurrLocation(newLocation);
+    getCurrLocationName(newLocation);
   };
 
   return isLoaded ? (
@@ -205,40 +206,67 @@ function MyComponent() {
             <input
               type="text"
               className="mapdirectioninputbar"
-              placeholder="Start"
+              placeholder="Search your location"
               ref={originRef}
             ></input>
           </Autocomplete>
-          <Autocomplete>
+          {/* <Autocomplete>
             <input
               className="mapdirectioninputbar"
               type="text"
               placeholder="Destination"
               ref={destiantionRef}
             ></input>
-          </Autocomplete>
-          <button onClick={calculateRoute}>Calculate Route</button>
+          </Autocomplete> */}
+          {/* <button onClick={calculateRoute}>Calculate Route</button> */}
+          <button onClick={getCurrentLocation}>Get current Location</button>
           <button onClick={clearRoute}>Clear</button>
         </div>
         <div>
-          <div>
+          <GoogleMap
+            mapContainerStyle={containerStyle}
+            center={currlocation}
+            zoom={11}
+            options={{
+              streetViewControl: false,
+              fullscreenControl: false,
+              mapTypeControl: false,
+            }}
+            onLoad={onLoad}
+            // onLoad={(map) => setMap(map)}
+            onUnmount={onUnmount}
+          >
+            <MarkerF
+              position={currlocation}
+              draggable={true}
+              onDragEnd={handleMarkerDrag}
+            />
+
+            {/* {directionsResponse && (
+              <DirectionsRenderer directions={directionsResponse} />
+            )} */}
+            {/* Child components, such as markers, info windows, etc. */}
+          </GoogleMap>
+        </div>
+        <div>
+          {/* <div>
             Distance: <span>{distance}</span>
           </div>
           <div>
             Duration: <span>{duration}</span>
-          </div>
+          </div> */}
           <div>
             Location: <span>{locationName}</span>
           </div>
-          <div>
+          {/* <div>
             Current Location Co- ordinates:
             <div>
               <span>latitude: {currlocation.lat}</span>
               <span>longitude: {currlocation.lng}</span>
             </div>
-          </div>
-          <button onClick={getCurrentLocation}>Get current Location</button>
-          <button
+          </div> */}
+
+          {/* <button
             onClick={() =>
               getGoogleMaps(currlocation.lat, currlocation.lng, locationName)
             }
@@ -247,35 +275,8 @@ function MyComponent() {
           </button>
           <button onClick={() => getDestinationDirection()}>
             Redirect & store Destination location
-          </button>
+          </button> */}
         </div>
-      </div>
-      <div>
-        <GoogleMap
-          mapContainerStyle={containerStyle}
-          center={currlocation}
-          zoom={11}
-          options={{
-            streetViewControl: false,
-            fullscreenControl: false,
-            mapTypeControl: false,
-          }}
-          onLoad={onLoad}
-          // onLoad={(map) => setMap(map)}
-          onUnmount={onUnmount}
-        >
-          {console.log(currlocation)}
-          <MarkerF
-            position={currlocation}
-            draggable={true}
-            onDragEnd={handleMarkerDrag}
-          />
-
-          {directionsResponse && (
-            <DirectionsRenderer directions={directionsResponse} />
-          )}
-          {/* Child components, such as markers, info windows, etc. */}
-        </GoogleMap>
       </div>
     </div>
   ) : (

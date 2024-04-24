@@ -1,15 +1,8 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./yourorder.css";
 
 function Orders({ selectedItems }) {
-  const items = [
-    { id: 1, content: "Item 1", price: 10 },
-    { id: 2, content: "Item 2", price: 40 },
-    { id: 3, content: "Item 3", price: 20 },
-    { id: 4, content: "Item 4", price: 30 },
-  ];
-  //   const [sum, countSum] = useState(0);
-  const sum = 100;
   useEffect(() => {
     console.log("Selected Items:");
     Object.entries(selectedItems).forEach(([dishName, { quantity, price }]) => {
@@ -23,25 +16,61 @@ function Orders({ selectedItems }) {
         <h3>Your Order!</h3>
         <div className="ordersList">
           <ul>
-            {items.map((ele) => {
-              //   countSum(sum + ele.price);
-              return (
-                <li key={ele.id}>
-                  <div className="orderseparationStyle">
-                    <div>{ele.name}</div>
-                    <div className="orderseparationprice">₹ {ele.price}</div>
-                  </div>
-                </li>
-              );
-            })}
+            {Object.entries(selectedItems).map(
+              ([dishName, { quantity, price }]) => {
+                //   countSum(sum + ele.price);
+                if (quantity > 0) {
+                  return (
+                    <li key={dishName}>
+                      <div className="orderseparationStyle">
+                        <div id="ordernameStyle">
+                          {dishName} x {quantity}
+                        </div>
+                        <div className="orderseparationprice">
+                          ₹ {price * quantity}
+                        </div>
+                      </div>
+                    </li>
+                  );
+                } else {
+                  return null;
+                }
+              }
+            )}
           </ul>
           <hr className="orderhrline"></hr>
           <div className="orderseparationStyle">
             <div className="orderseparationtotal">Total</div>
             <div className="orderseparationprice">
-              <strong>₹ {sum}</strong>
+              <strong>
+                {Object.entries(selectedItems).reduce(
+                  (acc, [dishName, { quantity, price }]) => {
+                    if (quantity > 0) {
+                      return acc + quantity * price;
+                    } else {
+                      return acc;
+                    }
+                  },
+                  0
+                )}
+              </strong>
             </div>
           </div>
+        </div>
+
+        {/* Order Now and Deliver now */}
+        <div id="OrderdeliverStyle_outer">
+          <button className="orderdeliveryButtons" id="yourOrderNowButton">
+            Order Now
+          </button>
+          <Link to="/delivery">
+            <button
+              className="orderdeliveryButtons"
+              id="yourOrderDeliverNowButton"
+            >
+              Deliver Now
+            </button>
+          </Link>
         </div>
       </div>
     </div>
