@@ -1,10 +1,11 @@
 import "./menu.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import MenuCategorySection from "./menucategorysection/menucategorysection";
 import Orders from "./yourOrder/yourorder";
 import axios from "axios";
 import baseURL from "../baseURL";
 import { faBorderNone } from "@fortawesome/free-solid-svg-icons";
+import SubmittedOrder from "./SubmittedOrder/SubmittedOrder";
 
 function Menu() {
   const [menuData, setMenuData] = useState([]);
@@ -12,8 +13,9 @@ function Menu() {
   const [useStarter, setUseStarter] = useState(true);
   const [useMainCourse, setUseMainCourse] = useState(false);
   const [useDrinks, setUseDrinks] = useState(false);
-
+  const [orderClicked, setOrderClicked] = useState(false);
   const [selectedItems, setSelectedItems] = useState({});
+  const [finalOrder, setFinalOrder] = useState({});
 
   function getMenuDate() {
     axios
@@ -21,14 +23,13 @@ function Menu() {
       .then((result) => {
         const listData = result.data;
         setMenuData(listData);
-        // console.log("Menu Item", listData);
       })
       .catch((err) => console.error("Error: ", err));
   }
 
   useEffect(() => {
     getMenuDate();
-  }, []);
+  }, [finalOrder]);
 
   function handleStarterClick() {
     setUseDrinks(false);
@@ -60,6 +61,25 @@ function Menu() {
       ...selectedItems,
       [itemName]: { quantity: quantity, price: price },
     });
+  }
+
+  function handleSubmittedOrder() {
+    setOrderClicked(true);
+    const filteredOrder =
+      Object.keys(finalOrder).length > 0 ? { ...finalOrder } : {};
+    if (selectedItems) {
+      for (const [key, value] of Object.entries(selectedItems)) {
+        if (value.quantity > 0) {
+          if (filteredOrder[key]) {
+            filteredOrder[key].quantity += value.quantity;
+          } else {
+            filteredOrder[key] = { ...value };
+          }
+        }
+      }
+    }
+    setFinalOrder(filteredOrder);
+    setSelectedItems({});
   }
 
   return (
@@ -145,7 +165,13 @@ function Menu() {
         </div>
         <div>
           <div>
-            <Orders selectedItems={selectedItems} />
+            <Orders
+              selectedItems={selectedItems}
+              handleOrderClick={() => handleSubmittedOrder()}
+            />
+          </div>
+          <div>
+            {orderClicked && <SubmittedOrder finalItems={finalOrder} />}
           </div>
         </div>
       </div>

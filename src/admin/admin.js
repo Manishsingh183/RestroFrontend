@@ -10,7 +10,7 @@ import AdminDelivery from "./adminDelivery/admindelivery";
 
 function Admin() {
   const [adminBar, setAdminBar] = useState({
-    menu: false,
+    menu: true,
     reservations: false,
     contact: false,
     mailing: false,
@@ -39,7 +39,7 @@ function Admin() {
           <AdminBar state={adminBar} updateState={updateState} />
         </div>
         <div className="admin_elements">
-          <AdminDelivery />
+          {/* <AdminDelivery /> */}
           {adminBar.contact && <AdminContactUs />}
           {adminBar.menu && <AdminMenu />}
           {adminBar.mailing && <AdminMailingList />}

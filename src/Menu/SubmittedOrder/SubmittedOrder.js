@@ -1,22 +1,20 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./yourorder.css";
+import "./SubmittedOrder.css";
 
-function Orders({ selectedItems, handleOrderClick }) {
-  useEffect(() => {
-    console.log("Selected Items:");
-    Object.entries(selectedItems).forEach(([dishName, { quantity, price }]) => {
-      console.log(`${dishName}: Quantity - ${quantity}, Price - ₹${price}`);
-    });
-  }, [selectedItems]);
+function SubmittedOrder(finalItems) {
+  console.log("Submitted Order list --->", finalItems.finalItems);
+  if (!finalItems) {
+    return <div>No items submitted</div>;
+  }
 
   return (
     <div>
       <div className="orders_inner">
-        <h3>Your Cart!</h3>
+        <h3>Your Order!</h3>
         <div className="ordersList">
           <ul>
-            {Object.entries(selectedItems).map(
+            {Object.entries(finalItems.finalItems).map(
               ([dishName, { quantity, price }]) => {
                 //   countSum(sum + ele.price);
                 if (quantity > 0) {
@@ -43,7 +41,7 @@ function Orders({ selectedItems, handleOrderClick }) {
             <div className="orderseparationtotal">Total</div>
             <div className="orderseparationprice">
               <strong>
-                {Object.entries(selectedItems).reduce(
+                {Object.entries(finalItems.finalItems).reduce(
                   (acc, [dishName, { quantity, price }]) => {
                     if (quantity > 0) {
                       return acc + quantity * price;
@@ -57,28 +55,9 @@ function Orders({ selectedItems, handleOrderClick }) {
             </div>
           </div>
         </div>
-
-        {/* Order Now and Deliver now */}
-        <div id="OrderdeliverStyle_outer">
-          <button
-            className="orderdeliveryButtons"
-            id="yourOrderNowButton"
-            onClick={handleOrderClick}
-          >
-            Order Now
-          </button>
-          <Link to="/delivery">
-            <button
-              className="orderdeliveryButtons"
-              id="yourOrderDeliverNowButton"
-            >
-              Deliver Now
-            </button>
-          </Link>
-        </div>
       </div>
     </div>
   );
 }
 
-export default Orders;
+export default SubmittedOrder;

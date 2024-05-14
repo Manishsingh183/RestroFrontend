@@ -44,7 +44,7 @@ function ReserveNow() {
           console.error("Error: ", error);
         });
     } else {
-      alert("Fill all the fields first");
+      // alert("Fill all the fields first");
       toast("Fill all the fields first");
     }
   }
