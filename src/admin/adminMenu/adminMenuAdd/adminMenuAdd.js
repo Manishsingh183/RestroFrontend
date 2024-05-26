@@ -2,6 +2,7 @@ import "./adminMenuAdd.css";
 import { useState } from "react";
 import axios from "axios";
 import baseURL from "../../../baseURL";
+import toast, { Toaster } from "react-hot-toast";
 
 function AdminMenuAdd() {
   const [image, setImage] = useState();
@@ -28,7 +29,17 @@ function AdminMenuAdd() {
       .post(baseURL + "/adminMenu", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       })
-      .then((result) => console.log(result))
+      .then((result) => {
+        console.log(result);
+        toast(dishInfo.dishName + " added!");
+        setDishInfo({
+          dishName: "",
+          price: 0,
+          dishDescription: "",
+          category: "",
+          subCategory: "",
+        });
+      })
       .catch((error) => console.error("Error:", error));
   }
 
@@ -131,6 +142,22 @@ function AdminMenuAdd() {
                 <button id="adminMenuAdd_submit" type="submit">
                   Submit
                 </button>
+                <Toaster
+                  toastOptions={{
+                    success: {
+                      style: {
+                        background: "black",
+                      },
+                      position: "top-right",
+                    },
+                    error: {
+                      style: {
+                        background: "red",
+                      },
+                      position: "top-right",
+                    },
+                  }}
+                />
               </div>
             </div>
           </form>

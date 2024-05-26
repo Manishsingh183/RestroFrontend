@@ -4,6 +4,7 @@ import HotelLogo from "../Image/HotelLogo.png";
 import { useState } from "react";
 import axios from "axios";
 import baseURL from "../baseURL";
+import toast, { Toaster } from "react-hot-toast";
 
 function Footer() {
   const [email, setEmail] = useState("");
@@ -14,7 +15,9 @@ function Footer() {
     await axios
       .post(baseURL + "/mailing", email)
       .then((result) => {
-        console.log(result.data.message);
+        // console.log(result.data.message);
+        toast("You have been successfully registered.");
+        setEmail("");
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -66,6 +69,22 @@ function Footer() {
             </form>
           </div>
         </div>
+        <Toaster
+          toastOptions={{
+            success: {
+              style: {
+                background: "green",
+              },
+              position: "top-right",
+            },
+            error: {
+              style: {
+                background: "red",
+              },
+              position: "top-right",
+            },
+          }}
+        />
         {/* ------------- 3rd block-------------------------------- */}
         <div className="footerthirdbox box">
           <h4>Working Hours</h4>

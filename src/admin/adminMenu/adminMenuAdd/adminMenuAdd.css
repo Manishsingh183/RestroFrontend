@@ -76,4 +76,13 @@
   padding: 2%;
   color: #fff;
   margin-top: 3%;
+  cursor: pointer;
+}
+
+#adminMenuAdd_submit:hover {
+  background-color: #00cc00;
+  border: none;
+  padding: 2%;
+  color: #fff;
+  margin-top: 3%;
 }

@@ -16,6 +16,7 @@ function Menu() {
   const [orderClicked, setOrderClicked] = useState(false);
   const [selectedItems, setSelectedItems] = useState({});
   const [finalOrder, setFinalOrder] = useState({});
+  const [islocallyStored, setIsLocallyStored] = useState(false);
 
   function getMenuDate() {
     axios
@@ -29,7 +30,19 @@ function Menu() {
 
   useEffect(() => {
     getMenuDate();
-  }, [finalOrder]);
+    getOrderDeatils();
+  }, []);
+  // finalOrder is present inside this []
+
+  function getOrderDeatils() {
+    const storedItems = sessionStorage.getItem("myOrder");
+    const islocallypresent = sessionStorage.getItem("islocallypresent");
+    console.log("locally stored Items---->", JSON.parse(storedItems));
+    if (islocallypresent) {
+      setFinalOrder(JSON.parse(storedItems));
+      setIsLocallyStored(true);
+    }
+  }
 
   function handleStarterClick() {
     setUseDrinks(false);
@@ -78,7 +91,15 @@ function Menu() {
         }
       }
     }
+    // if (!finalOrder && !selectedItems) {
+    //   const storedItems = localStorage.getItem("selectedItems");
+    //   setFinalOrder(storedItems);
+    // } else {
+    sessionStorage.setItem("myOrder", JSON.stringify(filteredOrder));
+    sessionStorage.setItem("islocallypresent", true);
     setFinalOrder(filteredOrder);
+    setIsLocallyStored(true);
+    // }
     setSelectedItems({});
   }
 
@@ -171,7 +192,9 @@ function Menu() {
             />
           </div>
           <div>
-            {orderClicked && <SubmittedOrder finalItems={finalOrder} />}
+            {(orderClicked || islocallyStored) && (
+              <SubmittedOrder finalItems={finalOrder} />
+            )}
           </div>
         </div>
       </div>

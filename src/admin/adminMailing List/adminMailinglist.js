@@ -7,6 +7,9 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 function AdminMailingList() {
   const [mailingList, setMailingList] = useState([]);
+  // const [searchMailingList, setSearchMailingList] = useState([]);
+  const [displayMailList, setMailDisplayList] = useState([]);
+  const [mailSearch, setMailSearch] = useState("");
 
   async function getMailingList() {
     await axios
@@ -14,6 +17,7 @@ function AdminMailingList() {
       .then((res) => {
         console.log(res.data);
         setMailingList(res.data);
+        setMailDisplayList(res.data);
       })
       .catch((error) => {
         console.log("Error found", error);
@@ -22,7 +26,25 @@ function AdminMailingList() {
 
   useEffect(() => getMailingList, []);
 
+  function handleMailingSearchChange(e) {
+    const query = e.target.value.toLowerCase();
+    setMailSearch(query);
+
+    if (query) {
+      const filteredList = mailingList.filter((item) =>
+        item.email.toLowerCase().includes(query)
+      );
+      setMailDisplayList(filteredList);
+    } else {
+      setMailDisplayList(mailingList); // Reset to full list if search is cleared
+    }
+  }
   let count = 0;
+
+  // function handleSearchClick(e) {
+  //   e.preventDefault();
+  //   if (mailSearch) handleMailingSearchChange(mailSearch);
+  // }
 
   return (
     <div id="adminMailing_inner">
@@ -36,11 +58,14 @@ function AdminMailingList() {
             placeholder="User Email"
             name="userEmail"
             className="adminMailingfilter_input"
+            value={mailSearch}
+            onChange={handleMailingSearchChange}
           />
-          <button type="submit" id="adminMailingfilter_submit">
+          <button type="submit" id="adminMailingfilter_submit" disabled>
             <FontAwesomeIcon
               icon={faMagnifyingGlass}
               style={{ fontSize: "1em" }}
+              // onClick={handleSearchClick}
             />
           </button>
         </form>
@@ -55,7 +80,7 @@ function AdminMailingList() {
               </tr>
             </thead>
             <tbody>
-              {mailingList.map((ele, idx) => {
+              {displayMailList.map((ele, idx) => {
                 count++;
                 return (
                   <tr key={idx}>

@@ -7,6 +7,11 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 function AdminReservation() {
   const [reservationValues, setReservationValues] = useState([]);
+  const [filteredReservations, setFilteredReservations] = useState([]);
+  const [guestName, setGuestName] = useState("");
+  const [bookingType, setBookingType] = useState("");
+  const [bookingDate, setBookingDate] = useState("");
+  const [bookingID, setBookingID] = useState("");
 
   useEffect(() => getReservationDetails, []);
 
@@ -16,8 +21,69 @@ function AdminReservation() {
       .then((res) => {
         console.log(res.data);
         setReservationValues(res.data);
+        setFilteredReservations(res.data);
       })
       .catch((error) => console.error("Error: ", error));
+  }
+
+  useEffect(() => {
+    filterReservations();
+  }, [guestName, bookingType, bookingDate]);
+
+  function handleAdminResrvChange(e) {
+    const { name, value } = e.target;
+    switch (name) {
+      case "BookingID":
+        setBookingID(value);
+        break;
+      case "GuestName":
+        setGuestName(value);
+        break;
+      case "bookingType":
+        setBookingType(value);
+        break;
+      case "bookingdate":
+        setBookingDate(value);
+        break;
+      default:
+        break;
+    }
+  }
+
+  function filterReservations() {
+    let filtered = reservationValues;
+
+    // if (!guestName && !bookingType && !bookingDate) {
+    //   setFilteredReservations(reservationValues);
+    //   return;
+    // }
+
+    if (guestName) {
+      filtered = filtered.filter((reservation) =>
+        reservation.fullName.toLowerCase().includes(guestName.toLowerCase())
+      );
+    }
+
+    if (bookingType) {
+      filtered = filtered.filter((reservation) =>
+        reservation.bookingType
+          .toLowerCase()
+          .includes(bookingType.toLowerCase())
+      );
+    }
+
+    if (bookingDate) {
+      filtered = filtered.filter(
+        (reservation) =>
+          new Date(reservation.date).toLocaleDateString() ===
+          new Date(bookingDate).toLocaleDateString()
+      );
+    }
+    // if (!guestName && !bookingType && !bookingDate) {
+    //   setFilteredReservations(reservationValues);
+    // }
+
+    setFilteredReservations(filtered);
   }
 
   let count = 0;
@@ -34,20 +100,34 @@ function AdminReservation() {
               <form id="adminResrv_filterform">
                 <input
                   type="text"
+                  placeholder="BookingID"
+                  name="BookingID"
+                  value={bookingID}
+                  onChange={handleAdminResrvChange}
+                  className="adminResrvfilter_inputs"
+                />
+                <input
+                  type="text"
                   placeholder="Guest Name"
                   name="GuestName"
+                  value={guestName}
+                  onChange={handleAdminResrvChange}
                   className="adminResrvfilter_inputs"
                 />
                 <input
                   className="adminResrvfilter_inputs"
                   type="text"
                   placeholder="Booking Type"
+                  value={bookingType}
+                  onChange={handleAdminResrvChange}
                   name="bookingType"
                 />
                 <input
                   type="date"
                   placeholder="BookingDate"
                   name="bookingdate"
+                  value={bookingDate}
+                  onChange={handleAdminResrvChange}
                   className="adminResrvfilter_inputs"
                 />
                 <button type="submit" id="adminResrvfilter_submit">
@@ -73,7 +153,7 @@ function AdminReservation() {
               </tr>
             </thead>
             <tbody>
-              {reservationValues.map((ele, idx) => {
+              {filteredReservations.map((ele, idx) => {
                 count++;
                 const Resdate = new Date(ele.date);
                 return (

@@ -43,10 +43,12 @@ function MyComponent() {
 
   useEffect(() => {
     if (isLoaded) {
-      getCurrentLocation();
+      // getCurrentLocation();
+      getCurrLocationName(currlocation);
     }
   }, [isLoaded]);
 
+  // To get the google maps direction in phone
   function getGoogleMaps(latitude, longitude, locationName) {
     const currentDateTime = new Date();
 
@@ -100,18 +102,6 @@ function MyComponent() {
     });
   }
 
-  function getCurrentLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        setCurrLocation({
-          lat: position.coords.latitude,
-          lng: position.coords.longitude,
-        });
-      });
-    }
-    getCurrLocationName(currlocation);
-  }
-
   function getCurrLocationName(locationCoord) {
     const geocoder = new window.google.maps.Geocoder();
     geocoder.geocode({ location: locationCoord }, (result, status) => {
@@ -127,6 +117,21 @@ function MyComponent() {
     });
   }
 
+  useEffect(() => {
+    getCurrentLocation();
+  }, []);
+
+  function getCurrentLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        setCurrLocation({
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        });
+      });
+    }
+  }
+
   function getLocationCoordinate(locationName) {
     // eslint-disable-next-line no-undef
     const geocoder = new google.maps.Geocoder();
@@ -135,9 +140,8 @@ function MyComponent() {
       if (status === "OK") {
         // Extract coordinates from the first result
         const { lat, lng } = results[0].geometry.location;
-        setCurrLocation({ lat, lng });
+        setCurrLocation({ lat: lat(), lng: lng() });
         setLocationName(results[0].formatted_address);
-        console.log("getLocationCoordonate---->", currlocation);
         // handleMarkerMove(currlocation);
       } else {
         console.error(
