@@ -7,6 +7,9 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 function AdminContactUs() {
   const [contactValues, setContactValues] = useState([]);
+  const [filteredValues, setFilteredValues] = useState([]);
+  const [nameFilter, setNameFilter] = useState("");
+  const [emailFilter, setEmailFilter] = useState("");
 
   useEffect(() => getContactUsValues, []);
 
@@ -16,10 +19,45 @@ function AdminContactUs() {
       .then((res) => {
         console.log(res);
         setContactValues(res.data);
+        setFilteredValues(res.data);
       })
       .catch((error) => {
         console.error("Error: ", error);
       });
+  }
+
+  function handleAdminContactChange(e) {
+    const { name, value } = e.target;
+    switch (name) {
+      case "name":
+        setNameFilter(value);
+        break;
+      case "email":
+        setEmailFilter(value);
+        break;
+      default:
+        break;
+    }
+  }
+
+  useEffect(() => {
+    getFilteredList();
+  }, [nameFilter, emailFilter]);
+
+  function getFilteredList() {
+    let filteredList = contactValues;
+    if (nameFilter) {
+      filteredList = filteredList.filter((contact) =>
+        contact.name.toLowerCase().includes(nameFilter.toLowerCase())
+      );
+    }
+    if (emailFilter) {
+      filteredList = filteredList.filter((contact) =>
+        contact.email.toLowerCase().includes(emailFilter.toLowerCase())
+      );
+    }
+
+    setFilteredValues(filteredList);
   }
 
   let count = 0;
@@ -32,12 +70,16 @@ function AdminContactUs() {
           <form id="adminContactfilter_form">
             <input
               type="text"
-              placeholder="UserName"
+              placeholder="Name"
+              name="name"
+              onChange={handleAdminContactChange}
               className="adminContactfilter_input"
             />
             <input
               type="text"
               placeholder="Email"
+              name="email"
+              onChange={handleAdminContactChange}
               className="adminContactfilter_input"
             />
             <button type="submit" id="adminContactfilter_submit">
@@ -58,7 +100,7 @@ function AdminContactUs() {
             </tr>
           </thead>
           <tbody>
-            {contactValues.map((ele, idx) => {
+            {filteredValues.map((ele, idx) => {
               count++;
               return (
                 <tr key={idx}>
