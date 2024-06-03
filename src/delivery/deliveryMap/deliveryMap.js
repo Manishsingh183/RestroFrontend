@@ -180,7 +180,7 @@ function MyComponent() {
 
   return isLoaded ? (
     <div id="deliveryMap_outer">
-      <div>Maps</div>
+      {/* <div>Maps</div> */}
       <div id="getMapBorder">
         <div id="getMap_infoBox">
           <Autocomplete>

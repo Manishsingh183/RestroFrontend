@@ -82,7 +82,7 @@ function AdminContactUs() {
               onChange={handleAdminContactChange}
               className="adminContactfilter_input"
             />
-            <button type="submit" id="adminContactfilter_submit">
+            <button type="submit" id="adminContactfilter_submit" disabled>
               <FontAwesomeIcon
                 icon={faMagnifyingGlass}
                 style={{ fontSize: "1em" }}

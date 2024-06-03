@@ -7,6 +7,7 @@ import AdminMailingList from "./adminMailing List/adminMailinglist";
 import AdminMenu from "./adminMenu/adminMenu";
 import AdminReservation from "./adminReservations/adminreservation";
 import AdminDelivery from "./adminDelivery/admindelivery";
+import Login from "./adminLogin/adminlogin";
 
 function Admin() {
   const [adminBar, setAdminBar] = useState({

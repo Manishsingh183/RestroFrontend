@@ -36,7 +36,7 @@ function ContactForm() {
       .post(baseURL + "/contactUs", contactData)
       .then((result) => {
         console.log(result.data.message);
-        toast("Your details has been sent");
+        toast("We have received your message. Thank you for contacting us!!");
         clearForm();
         // alert("Your details has been sent!");
       })

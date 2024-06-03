@@ -5,4 +5,8 @@
 
 #deliveryMap_outer {
   border: 1px solid black;
+  height: fit-content;
+  padding: 3%;
+  align-items: center;
+  justify-content: center;
 }

@@ -130,7 +130,7 @@ function AdminReservation() {
                   onChange={handleAdminResrvChange}
                   className="adminResrvfilter_inputs"
                 />
-                <button type="submit" id="adminResrvfilter_submit">
+                <button type="submit" id="adminResrvfilter_submit" disabled>
                   <FontAwesomeIcon
                     icon={faMagnifyingGlass}
                     style={{ fontSize: "1em" }}

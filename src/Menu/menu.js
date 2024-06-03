@@ -6,6 +6,7 @@ import axios from "axios";
 import baseURL from "../baseURL";
 import { faBorderNone } from "@fortawesome/free-solid-svg-icons";
 import SubmittedOrder from "./SubmittedOrder/SubmittedOrder";
+import toast, { Toaster } from "react-hot-toast";
 
 function Menu() {
   const [menuData, setMenuData] = useState([]);
@@ -97,6 +98,7 @@ function Menu() {
     // } else {
     sessionStorage.setItem("myOrder", JSON.stringify(filteredOrder));
     sessionStorage.setItem("islocallypresent", true);
+    toast("Your order has been placed!");
     setFinalOrder(filteredOrder);
     setIsLocallyStored(true);
     // }
@@ -196,6 +198,22 @@ function Menu() {
               <SubmittedOrder finalItems={finalOrder} />
             )}
           </div>
+          <Toaster
+            toastOptions={{
+              success: {
+                style: {
+                  background: "green",
+                },
+                position: "top-right",
+              },
+              error: {
+                style: {
+                  background: "red",
+                },
+                position: "top-right",
+              },
+            }}
+          />
         </div>
       </div>
     </div>

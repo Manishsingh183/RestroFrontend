@@ -1,23 +1,98 @@
-.deliveryNotAvailable {
-  display: flex;
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* position: relative; */
-  /* right: 4%; */
-  /* margin: 10% 0; */
-  margin-left: 10%;
+.deliveryForm {
+  margin: auto;
+  display: grid;
+  grid-template-columns: 45% 45%;
+  column-gap: 8%;
+  padding: 0 10%;
 }
 
-#notavailable {
-  font-size: 15px;
-  padding: 10% 30%;
-  width: 200%;
-  background-color: #fff;
+#completeAddress {
+  margin: 3% 20%;
+  height: fit-content;
+}
+
+.delivery-container {
+  font-family: Arial, sans-serif;
+}
+
+.order-info {
+  background-color: #d3d3d3; /* Light grey background */
+  padding: 20px;
+  border-radius: 5px;
+  margin: auto;
+  width: 60%;
+}
+
+.info-header {
+  margin-bottom: 20px;
+  border: 1px solid black;
+  padding: 2%;
+}
+
+.info-header div {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.info-header button {
+  display: block;
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
   border: none;
+  border-radius: 3px;
   cursor: pointer;
 }
 
-#notavailable:hover {
-  background-color: black;
-  color: #fff;
+.info-header button:hover {
+  background-color: #0056b3;
+}
+
+.info-content {
+  padding: 10px;
+  background-color: white;
+  border-top: 1px solid #ccc;
+  font-style: italic;
+  margin-top: 20px;
+}
+
+.deliveryForm {
+  margin-top: 20px;
+}
+
+#placeOrderToDeliver {
+  text-align: center;
+}
+
+#placeOrderButton {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 10%;
+  margin-top: 1%;
+}
+
+#OrderCancelButton {
+  padding: 10px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 10%;
+  margin-top: 1%;
+}
+
+#noItemInCart {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
