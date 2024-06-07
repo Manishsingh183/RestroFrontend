@@ -21,6 +21,7 @@ function Footer() {
       })
       .catch((error) => {
         console.error("Error:", error);
+        toast("Error in connection!!");
       });
   }
 
