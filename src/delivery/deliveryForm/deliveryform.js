@@ -4,7 +4,7 @@ import axios from "axios";
 import baseURL from "../../baseURL";
 import toast, { Toaster } from "react-hot-toast";
 
-function DeliveryAddress({ isEdit }) {
+function DeliveryAddress({ isEdit, isClear }) {
   const [formData, setFormData] = useState({
     flatNo: "",
     roadNo: "",
@@ -71,6 +71,7 @@ function DeliveryAddress({ isEdit }) {
   }
 
   function handleClear() {
+    isClear();
     setFormData({
       flatNo: "",
       roadNo: "",
@@ -100,6 +101,7 @@ function DeliveryAddress({ isEdit }) {
             name="flatNo"
             value={formData.flatNo}
             onChange={handleChange}
+            required
           />
           <input
             className="deliveryform_input"
@@ -108,6 +110,7 @@ function DeliveryAddress({ isEdit }) {
             name="roadNo"
             value={formData.roadNo}
             onChange={handleChange}
+            required
           />
           <input
             className="deliveryform_input"
@@ -116,6 +119,7 @@ function DeliveryAddress({ isEdit }) {
             name="areaName"
             value={formData.areaName}
             onChange={handleChange}
+            required
           />
           <input
             className="deliveryform_input"
@@ -132,6 +136,7 @@ function DeliveryAddress({ isEdit }) {
             name="city"
             value={formData.city}
             onChange={handleChange}
+            required
           />
           <input
             className="deliveryform_input"
@@ -140,6 +145,7 @@ function DeliveryAddress({ isEdit }) {
             name="state"
             value={formData.state}
             onChange={handleChange}
+            required
           />
           <input
             className="deliveryform_input"
@@ -148,6 +154,7 @@ function DeliveryAddress({ isEdit }) {
             name="pincode"
             value={formData.pincode}
             onChange={handleChange}
+            required
           />
           <div className="deliveryform_buttons">
             <button className="deliveryform_button" type="submit">

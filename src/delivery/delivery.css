@@ -96,3 +96,28 @@
   justify-content: center;
   text-align: center;
 }
+
+#setAddressinstruction {
+  text-align: center;
+  background-color: #fff;
+  padding: 3px;
+  border-radius: 2%;
+  width: fit-content;
+  margin: auto;
+  height: fit-content;
+  animation: moveUpDown 2s infinite;
+  /* position: relative; */
+  /* -webkit-animation: moving 5s infinite; */
+}
+
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

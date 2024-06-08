@@ -16,32 +16,48 @@ function Delivery() {
   const [address, setAddress] = useState("");
   const [isAddressStored, setIsAddressStored] = useState(false);
   const [isEditClick, setIsEditClick] = useState(false);
-  const [placeordervisible, seteplaceordervisible] = useState(true);
+  const [placeorderbuttonvisible, seteplaceorderbuttonvisible] = useState(true);
   const [toDeliverOrder, setToDeliverOrder] = useState(false);
   const [orderContent, setOrderContent] = useState(false);
   const [totalAmount, setTotalAmount] = useState(0);
 
   useEffect(() => {
+    const getOrderObject = sessionStorage.getItem("myOrder");
+    console.log("Print this line 51");
+    if (getOrderObject) {
+      const orderObj = JSON.parse(getOrderObject);
+      console.log("Order list-->", orderObj);
+      setToDeliverOrder(true);
+      setOrderContent(orderObj);
+      calculateTotal();
+    }
+  }, []);
+
+  useEffect(() => {
     const strAddress = localStorage.getItem("deliveryAddress");
     const storedAddress = JSON.parse(strAddress);
-    if (storedAddress) {
+    if (
+      storedAddress &&
+      storedAddress.flatNo.length > 0 &&
+      storedAddress.areaName.length > 0 &&
+      storedAddress.city.length > 0
+    ) {
       const addr =
         storedAddress.flatNo +
-        " ," +
+        " " +
         storedAddress.roadNo +
-        " ," +
+        " " +
         storedAddress.areaName +
-        " ," +
+        " " +
         storedAddress.landmark +
-        " ," +
+        " " +
         storedAddress.city +
-        " ," +
+        " " +
         storedAddress.state +
-        " ," +
+        " " +
         storedAddress.pincode;
       setAddress(addr);
       setIsAddressStored(true);
-
       const getOrderObject = sessionStorage.getItem("myOrder");
       if (getOrderObject) {
         const orderObj = JSON.parse(getOrderObject);
@@ -50,11 +66,12 @@ function Delivery() {
         setOrderContent(orderObj);
         calculateTotal();
       }
+    } else {
+      setIsAddressStored(false);
     }
     const orderplacestatus = sessionStorage.getItem("orderPlaced");
-    console.log(orderplacestatus);
-    if (orderplacestatus === "false") {
-      seteplaceordervisible(false);
+    if (orderplacestatus === "true") {
+      seteplaceorderbuttonvisible(true);
     }
   }, [address, isEditClick]);
 
@@ -89,21 +106,29 @@ function Delivery() {
   // const orderId = uuid;
 
   function handleOrderPlace() {
-    seteplaceordervisible(false);
-    sessionStorage.setItem("orderPlaced", "false");
+    // To hide the order button as soon as the order button is clicked!
+    seteplaceorderbuttonvisible(false);
+    sessionStorage.setItem("orderPlaced", "true");
     toast("Order placed Successfully!!");
   }
 
   function handleCancelPlace() {
-    seteplaceordervisible(true);
-    sessionStorage.setItem("orderPlaced", "true");
+    seteplaceorderbuttonvisible(true);
+    sessionStorage.setItem("orderPlaced", "false");
     toast("Order Cancelled!!");
+    setAddress("");
+  }
+
+  function handleAddressform() {
+    setIsEditClick(false);
+    seteplaceorderbuttonvisible(false);
+    setIsAddressStored(true);
   }
 
   return (
     <div>
       <DeliverySec1 />
-      {!isEditClick && (
+      {!isEditClick && isAddressStored && (
         <div className="order-info">
           <div className="info-header">
             <div>Name: Manish K.</div>
@@ -112,7 +137,7 @@ function Delivery() {
               Address:{" "}
               <div>
                 {address}{" "}
-                {placeordervisible && (
+                {placeorderbuttonvisible && (
                   <button onClick={handleEditAddressButton}>
                     Edit Address
                   </button>
@@ -147,20 +172,26 @@ function Delivery() {
                 )}
               </ul>
             ) : (
-              <div id="noItemInCart">No Item in Cart</div>
+              <div id="noItemInCart">
+                No Item in Cart
+                {console.log("To deliverOrder---->", toDeliverOrder)}
+              </div>
             )}
           </div>
         </div>
       )}
 
-      {placeordervisible && toDeliverOrder && !isEditClick && (
-        <div id="placeOrderToDeliver">
-          <button id="placeOrderButton" onClick={handleOrderPlace}>
-            Place Order
-          </button>
-        </div>
-      )}
-      {!placeordervisible && (
+      {placeorderbuttonvisible &&
+        toDeliverOrder &&
+        !isEditClick &&
+        isAddressStored && (
+          <div id="placeOrderToDeliver">
+            <button id="placeOrderButton" onClick={handleOrderPlace}>
+              Place Order
+            </button>
+          </div>
+        )}
+      {!placeorderbuttonvisible && isAddressStored && (
         <div id="placeOrderToDeliver">
           <button id="OrderCancelButton" onClick={handleCancelPlace}>
             Cancel Order
@@ -169,9 +200,17 @@ function Delivery() {
       )}
 
       {(!isAddressStored || isEditClick) && (
-        <div className="deliveryForm">
-          <MapComponent />
-          <DeliveryAddress isEdit={() => setIsEditClick(false)} />
+        <div>
+          <div id="setAddressinstruction">
+            *Fill address before proceeding forward!
+          </div>
+          <div className="deliveryForm">
+            <MapComponent />
+            <DeliveryAddress
+              isEdit={() => handleAddressform()}
+              isClear={() => setIsAddressStored(false)}
+            />
+          </div>
         </div>
       )}
 
