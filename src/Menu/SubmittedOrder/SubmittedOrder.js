@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./SubmittedOrder.css";
 
 function SubmittedOrder(finalItems) {
-  console.log("Submitted Order list --->", finalItems.finalItems);
+  // console.log("Submitted Order list --->", finalItems.finalItems);
   if (!finalItems) {
     return <div>No items submitted</div>;
   }

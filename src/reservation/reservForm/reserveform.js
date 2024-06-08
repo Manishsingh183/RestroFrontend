@@ -30,6 +30,16 @@ function ReserveNow() {
     return true;
   };
 
+  function handleClearform() {
+    setFormData({
+      fullName: "",
+      guestNo: "",
+      bookingtype: "",
+      selectedDate: "",
+      timeslot: "",
+    });
+  }
+
   async function handleSubmit(event) {
     event.preventDefault();
     console.log(formData);
@@ -37,6 +47,7 @@ function ReserveNow() {
       await axios
         .post(baseURL + "/reservation", formData)
         .then((result) => {
+          handleClearform();
           console.log(result.data.message);
           toast(result.data.message);
         })

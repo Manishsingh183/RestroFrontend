@@ -77,7 +77,7 @@ function Menu() {
     });
   }
 
-  function handleSubmittedOrder() {
+  function handleSubmittedOrder(buttonType) {
     setOrderClicked(true);
     const filteredOrder =
       Object.keys(finalOrder).length > 0 ? { ...finalOrder } : {};
@@ -92,13 +92,14 @@ function Menu() {
         }
       }
     }
-    // if (!finalOrder && !selectedItems) {
-    //   const storedItems = localStorage.getItem("selectedItems");
-    //   setFinalOrder(storedItems);
-    // } else {
     sessionStorage.setItem("myOrder", JSON.stringify(filteredOrder));
     sessionStorage.setItem("islocallypresent", true);
-    toast("Your order has been placed!");
+    if (buttonType === "OrderNow") {
+      toast("Your order has been placed!");
+    } else if (buttonType === "DeliverNow") {
+      console.log("DeliverNow button clicked------>100");
+      toast("Items moved to you cart!");
+    }
     setFinalOrder(filteredOrder);
     setIsLocallyStored(true);
     // }

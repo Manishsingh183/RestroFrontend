@@ -71,7 +71,7 @@ function Delivery() {
     }
     const orderplacestatus = sessionStorage.getItem("orderPlaced");
     if (orderplacestatus === "true") {
-      seteplaceorderbuttonvisible(true);
+      seteplaceorderbuttonvisible(false);
     }
   }, [address, isEditClick]);
 
@@ -121,7 +121,7 @@ function Delivery() {
 
   function handleAddressform() {
     setIsEditClick(false);
-    seteplaceorderbuttonvisible(false);
+    seteplaceorderbuttonvisible(true);
     setIsAddressStored(true);
   }
 

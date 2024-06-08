@@ -63,7 +63,7 @@ function Orders({ selectedItems, handleOrderClick }) {
           <button
             className="orderdeliveryButtons"
             id="yourOrderNowButton"
-            onClick={handleOrderClick}
+            onClick={() => handleOrderClick("OrderNow")}
           >
             Order Now
           </button>
@@ -71,6 +71,7 @@ function Orders({ selectedItems, handleOrderClick }) {
             <button
               className="orderdeliveryButtons"
               id="yourOrderDeliverNowButton"
+              onClick={() => handleOrderClick("DeliverNow")}
             >
               Deliver Now
             </button>
