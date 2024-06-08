@@ -20,7 +20,12 @@ function DishCard({ name, desc, price, category, quantity, onQuantityChange }) {
       <div className="dishcard_inner">
         {/* ------------------Image------------------------ */}
         <div className="imagecard">
-          <img className="dishcardimage" src={image1} alt="Testing prupose" />
+          {/* <img className="dishcardimage" src={image1} alt="Testing prupose" /> */}
+          <img
+            className="dishcardimage"
+            src="https://raw.githubusercontent.com/Manishsingh183/restroImages/main/uploads/gallery1.png"
+            alt="Testing prupose"
+          />
         </div>
         {/* ---------------------- dish details-------------------- */}
         <div className="dishnamecard">{name}</div>
