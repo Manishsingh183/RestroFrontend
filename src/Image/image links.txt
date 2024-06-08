@@ -1,0 +1,9 @@
+      chef1: https://raw.githubusercontent.com/Manishsingh183/restroImages/main/uploads/chef2.png      
+      chef2: https://raw.githubusercontent.com/Manishsingh183/restroImages/main/uploads/chef2.png
+      chef3: https://raw.githubusercontent.com/Manishsingh183/restroImages/main/uploads/chef3.png
+   gallery1: https://raw.githubusercontent.com/Manishsingh183/restroImages/main/uploads/gallery1.png
+   gallery2: https://raw.githubusercontent.com/Manishsingh183/restroImages/main/uploads/gallery2.png
+   history1: https://raw.githubusercontent.com/Manishsingh183/restroImages/main/uploads/history1.png
+  ResrvGal2: https://raw.githubusercontent.com/Manishsingh183/restroImages/main/uploads/ResrvGal2.png
+  ResrvSec1: https://raw.githubusercontent.com/Manishsingh183/restroImages/main/uploads/ResrvSec1.png
+speciality4: https://raw.githubusercontent.com/Manishsingh183/restroImages/main/uploads/speciality4.png
